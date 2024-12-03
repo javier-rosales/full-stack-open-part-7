@@ -91,6 +91,12 @@ const CreateNew = ({ addNew }) => {
       votes: 0
     })
   }
+  
+  const handleReset = () => {
+    content.reset()
+    author.reset()
+    info.reset()
+  }
 
   return (
     <div>
@@ -98,17 +104,23 @@ const CreateNew = ({ addNew }) => {
       <form onSubmit={handleSubmit}>
         <div>
           content
-          <input {...content} />
+          <input {...content.inputProps} />
         </div>
         <div>
           author
-          <input {...author} />
+          <input {...author.inputProps} />
         </div>
         <div>
           url for more info
-          <input {...info} />
+          <input {...info.inputProps} />
         </div>
-        <button>Create</button>
+        <button type='submit'>Create</button>
+        <button
+          type='button'
+          onClick={handleReset}
+        >
+          Reset
+        </button>
       </form>
     </div>
   )
